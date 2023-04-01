@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-       @include('include.style')
+        <title>Dashboard - SB Admin</title>
+       @include('include.backend.style')
     </head>
     <body class="sb-nav-fixed">
-        @include('include.header')
+        @include('include.backend.header')
         
         <div id="layoutSidenav">
-            @include('include.sidebar')
-            @yield('content')
+            @include('include.backend.sidebar')
+            
+            <div id="layoutSidenav_content">
+                <main>
+                   @yield('content') 
+                </main>
+                @include('include.backend.footer')
+            </div>
         </div>
-       @include('include.script')
+       @include('include.backend.script')
     </body>
 </html>
