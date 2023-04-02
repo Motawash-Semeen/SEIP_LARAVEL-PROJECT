@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function show(){
         $products = Product::all();
 
-        return view('include.backend.pages.showProduct', compact("products"));
+        return view('include.backend.pages.product.showProduct', compact("products"));
     }
 
     public function delete($id){
@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function edit($id){
         $product = Product::find($id);
         
-        return view('include.backend.pages.editProduct', compact("product"));
+        return view('include.backend.pages.product.editProduct', compact("product"));
     }
 
     public function update(Request $req, $id){

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Backend\IndexController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +49,35 @@ Route::get('/dashboard', function () {
 
 
 
+//CRUD
+
+Route::middleware(['auth', 'role:Admin'])->name('admin.')->prefix('dashboard')->group(function () {
+    
+Route::get('/user', [IndexController::class, 'indexUser'])->name('User');
+
+
+Route::get('/addUser', [UserController::class, 'create'])->name('AddUser');
+
+Route::get('/showUser', [UserController::class, 'show'])->name('ShowUser');
+
+Route::get('/deleteUser/{id}', [UserController::class, 'delete'])->name('DeleteUser');
+
+Route::get('/assignRole/{id}', [UserController::class, 'assignRole'])->name('assignRole');
+
+Route::get('/removeRole/{id}', [UserController::class, 'removeRole'])->name('removeRole');
+
+Route::get('/editUser/{id}', [UserController::class, 'edit'])->name('editUser');
+
+Route::post('/updateUser/{id}', [UserController::class, 'update'])->name('updateUser');
+
+
+});
+
+
+
+
+
+
 
 
 
@@ -68,6 +98,8 @@ Route::get('/dashboard/statusDown/{id}', [ProductController::class, 'statusDown'
 Route::get('/dashboard/editProduct/{id}', [ProductController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit');
 
 Route::post('/dashboard/updateProduct/{id}', [ProductController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
+
+
 
 
 
