@@ -7,7 +7,8 @@
         <h5 class="card-title">Add Product</h5>
 
         <!-- Multi Columns Form -->
-        <form class="row g-3 offset-3" action="{{url('/dashboard/addProduct')}}">
+        <form class="row g-3 offset-3" action="{{url('/dashboard/addProduct')}}" enctype="multipart/form-data">
+            @csrf
             <div class="col-md-6 border border-black rounded p-3">
                 <div class="col-md-12">
                     <label for="inputName5" class="form-label">Product Name</label>

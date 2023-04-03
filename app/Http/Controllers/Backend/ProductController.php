@@ -16,14 +16,14 @@ class ProductController extends Controller
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
         $product->price = $req->price;
-
-        if( $req->hasFile("image")){
-            $file = $req->file("image");
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/products/',$filename);
-            $product->image = $filename;
-        }
+        $product->image = $req->file("image");
+        // if( $req->hasFile("image")){
+        //     $file = $req->file("image");
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$extension;
+        //     $file->move('uploads/products/',$filename);
+        //     $product->image = $filename;
+        // }
         $product->status = $req->status;
 
         $product->save();
