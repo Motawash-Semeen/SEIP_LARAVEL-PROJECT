@@ -33,7 +33,8 @@
                 </div>
                 <div class="col-md-8">
                     <label for="inputAddress2" class="form-label">Image</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Image" name="image" value="{{$product->name}}">
+                    <input type="file" class="form-control" id="inputAddress2" name="image">
+                    <img class="m-3" src="{{asset('uploads/products/'.$product->image)}}" alt="">
                 </div>
                 <div class="col-md-12 row m-0">
                     <div class="col-md-8">

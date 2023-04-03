@@ -85,7 +85,7 @@ Route::post('/updateUser/{id}', [UserController::class, 'update'])->name('update
 Route::get('/dashboard/product', [IndexController::class, 'indexProduct'])->middleware(['auth', 'verified'])->name('Product');
 
 
-Route::get('/dashboard/addProduct', [ProductController::class, 'create'])->middleware(['auth', 'verified'])->name('AddProduct');
+Route::post('/dashboard/addProduct', [ProductController::class, 'create'])->middleware(['auth', 'verified'])->name('AddProduct');
 
 Route::get('/dashboard/showProduct', [ProductController::class, 'show'])->middleware(['auth', 'verified'])->name('ShowProduct');
 

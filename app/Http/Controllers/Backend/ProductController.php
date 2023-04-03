@@ -10,20 +10,20 @@ class ProductController extends Controller
 {
     public function create(Request $req){
         $product = new Product;
-
+        
         $product->name = $req->ProductName;
         $product->category_name = $req->CateName;
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
         $product->price = $req->price;
         $product->image = $req->file("image");
-        // if( $req->hasFile("image")){
-        //     $file = $req->file("image");
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time().'.'.$extension;
-        //     $file->move('uploads/products/',$filename);
-        //     $product->image = $filename;
-        // }
+        if( $req->hasFile("image")){
+            $file = $req->file("image");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/products/',$filename);
+            $product->image = $filename;
+        }
         $product->status = $req->status;
 
         $product->save();

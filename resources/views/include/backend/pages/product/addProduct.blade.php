@@ -7,7 +7,7 @@
         <h5 class="card-title">Add Product</h5>
 
         <!-- Multi Columns Form -->
-        <form class="row g-3 offset-3" action="{{url('/dashboard/addProduct')}}" enctype="multipart/form-data">
+        <form class="row g-3 offset-3" action="{{url('/dashboard/addProduct')}}" enctype="multipart/form-data" method="post">
             @csrf
             <div class="col-md-6 border border-black rounded p-3">
                 <div class="col-md-12">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-12 my-3">
                     <label for="inputimage" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="inputimage" placeholder="Image" name="image">
+                    <input type="file" class="form-control" id="inputimage" name="image">
                 </div>
                 <div class="col-md-12 row m-0">
                     <div class="col-md-8">

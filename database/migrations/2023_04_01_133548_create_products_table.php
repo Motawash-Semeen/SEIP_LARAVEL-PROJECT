@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('brand_name');
             $table->text('description');
             $table->float('price');
-            $table->text('image')->nullable();
+            $table->string('image')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1active 0 inactive');
             $table->timestamps();
         });

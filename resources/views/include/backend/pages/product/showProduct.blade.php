@@ -48,7 +48,7 @@
                                 <td>{{$values->category_name}}</td>
                                 <td>{{$values->brand_name}}</td>
                                 <td>{{$values->description}}</td>
-                                <td><img src="{{asset('uploads/products/'.$values->image)}}" alt="product" width="80px" height="110px"></td>
+                                <td><img src="{{asset('uploads/products/'.$values->image)}}" alt="product" width="100px" height="110px"></td>
                                 <td>{{$values->price}}</td>
                                 <td>
                                     @if ($values->status==1)
