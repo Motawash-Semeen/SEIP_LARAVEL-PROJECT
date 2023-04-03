@@ -14,7 +14,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{url('/')}}">Home</a></li>
                         <li><a href="{{url('/shopPage')}}">Shop page</a></li>
-                        <li><a href="{{url('/singleProduct')}}">Single product</a></li>
+                        <li><a href="{{url('/singleProduct/14')}}">Single product</a></li>
                         <li><a href="{{url('/cart')}}">Cart</a></li>
                         <li><a href="{{url('/checkout')}}">Checkout</a></li>
                         <li><a href="#">Category</a></li>

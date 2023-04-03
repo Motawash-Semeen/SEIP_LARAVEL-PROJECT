@@ -104,7 +104,26 @@
                                     <ins>$700.00</ins> <del>$100.00</del>
                                 </div>
                             </div>
+                            @foreach ($products as $product)
                             <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="{{asset('uploads/products/'.$product->image)}}" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add
+                                            to cart</a>
+                                        <a href="{{url('/singleProduct/'.$product->id)}}" class="view-details-link"><i class="fa fa-link"></i>
+                                            See details</a>
+                                    </div>
+                                </div>
+
+                                <h2><a href="{{url('/singleProduct/'.$product->id)}}">{{$product->name}}</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>${{$product->price}}</ins> <del>${{($product->price)+100}}</del>
+                                </div>
+                            </div>
+                            @endforeach
+                            {{-- <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('frontend') }}/img/product-2.jpg" alt="">
                                     <div class="product-hover">
@@ -187,7 +206,8 @@
                                 <div class="product-carousel-price">
                                     <ins>$400.00</ins>
                                 </div>
-                            </div>
+                            </div> --}}
+                            
                         </div>
                     </div>
                 </div>

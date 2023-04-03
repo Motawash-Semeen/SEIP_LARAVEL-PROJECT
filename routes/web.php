@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Backend\IndexController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Frontend\frontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,25 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('include.frontend.pages.home');
-});
-Route::get('/shopPage', function () {
-    return view('include.frontend.pages.shopPage');
-});
-Route::get('/singleProduct', function () {
-    return view('include.frontend.pages.singleProduct');
-});
-Route::get('/cart', function () {
-    return view('include.frontend.pages.cart');
-});
-Route::get('/checkout', function () {
-    return view('include.frontend.pages.checkout');
-});
 
-
-
-
+Route::get('/', [frontendController::class, 'index']);
+Route::get('/shopPage', [frontendController::class, 'shopPage']);
+Route::get('/singleProduct/{id}', [frontendController::class, 'singleProduct']);
+Route::get('/cart', [frontendController::class, 'cart']);
+Route::get('/checkout', [frontendController::class, 'checkout']);
 
 
 
@@ -44,7 +32,6 @@ Route::get('/checkout', function () {
 Route::get('/dashboard', function () {
     return view('include.backend.partials.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 
 
