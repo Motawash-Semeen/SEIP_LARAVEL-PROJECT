@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,7 @@ class ProductController extends Controller
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
         $product->price = $req->price;
-        $product->image = $req->file("image");
+        
         if( $req->hasFile("image")){
             $file = $req->file("image");
             $extension = $file->getClientOriginalExtension();
@@ -66,9 +67,20 @@ class ProductController extends Controller
         $product->category_name = $req->CateName;
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
-        $product->price = $req->price;
-        $product->image = $req->image;
         
+        if( $req->hasFile("new_img")){
+            $product->price = $req->price;
+            $destination = "uploads/products/".$product->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $req->file("new_img");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/products/',$filename);
+            $product->image = $filename;
+        }
+
         $product->status = $req->status;
         $product->update();
         return redirect('/dashboard/showProduct');
