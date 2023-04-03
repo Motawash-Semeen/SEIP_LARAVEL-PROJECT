@@ -16,7 +16,14 @@ class ProductController extends Controller
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
         $product->price = $req->price;
-        $product->image = $req->image;
+
+        if( $req->hasFile("image")){
+            $file = $req->file("image");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/products/',$filename);
+            $product->image = $filename;
+        }
         $product->status = $req->status;
 
         $product->save();
@@ -61,6 +68,7 @@ class ProductController extends Controller
         $product->description = $req->descrip;
         $product->price = $req->price;
         $product->image = $req->image;
+        
         $product->status = $req->status;
         $product->update();
         return redirect('/dashboard/showProduct');

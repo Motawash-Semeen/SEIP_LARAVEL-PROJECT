@@ -31,8 +31,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 my-3">
-                    <label for="inputAddress2" class="form-label">Image</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Image" name="image">
+                    <label for="inputimage" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="inputimage" placeholder="Image" name="image">
                 </div>
                 <div class="col-md-12 row m-0">
                     <div class="col-md-8">
