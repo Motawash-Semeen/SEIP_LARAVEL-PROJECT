@@ -67,9 +67,9 @@ class ProductController extends Controller
         $product->category_name = $req->CateName;
         $product->brand_name = $req->BrandName;
         $product->description = $req->descrip;
-        
+        $product->price = $req->price;
         if( $req->hasFile("new_img")){
-            $product->price = $req->price;
+            
             $destination = "uploads/products/".$product->image;
             if(File::exists($destination)){
                 File::delete($destination);
